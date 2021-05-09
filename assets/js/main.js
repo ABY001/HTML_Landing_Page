@@ -1,4 +1,12 @@
 /*==================== SHOW MENU ====================*/
+const modal = document.getElementById("modal-wrapper");
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
+/*==================== SHOW MENU ====================*/
 const showMenu = (toggleId, navId) => {
   const toggle = document.getElementById(toggleId),
     nav = document.getElementById(navId);
@@ -15,6 +23,22 @@ showMenu("nav-toggle", "nav-menu");
 
 /*==================== REMOVE MENU MOBILE ====================*/
 const navLink = document.querySelectorAll(".nav__link");
+
+function enableLogin() {
+  const enableBtn = document.getElementById("my-check");
+  // When we click on each nav__link, we remove the show-menu class
+
+  const login = document.getElementById("login");
+
+  // document.getElementById('my-input-id').disabled = false;
+
+  // If the checkbox is checked, display the output text
+  if (enableBtn.checked == true) {
+    login.disabled = false;
+  } else {
+    login.disabled = true;
+  }
+}
 
 function linkAction() {
   const navMenu = document.getElementById("nav-menu");

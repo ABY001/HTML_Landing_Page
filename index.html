@@ -35,13 +35,18 @@
               <a href="#home" class="nav__link active-link">Home</a>
             </li>
             <li class="nav__item">
-              <a href="#share" class="nav__link">App</a>
+              <a href="#work" class="nav__link">App</a>
             </li>
             <li class="nav__item">
-              <a href="#work" class="nav__link">Decorations</a>
+              <a href="#footer" class="nav__link">Download</a>
             </li>
             <li class="nav__item">
-              <a href="#create" class="nav__link">Accessory</a>
+              <a
+                href="#modal-wrapper"
+                class="nav__link"
+                onclick="document.getElementById('modal-wrapper').style.display='block'"
+                >Register</a
+              >
             </li>
 
             <li>
@@ -55,6 +60,45 @@
         </div>
       </nav>
     </header>
+
+    <div id="modal-wrapper" class="modal">
+      <form class="modal-content animate" action="/action_page.php">
+        <div class="imgcontainer">
+          <span
+            onclick="document.getElementById('modal-wrapper').style.display='none'"
+            class="close"
+            title="Close PopUp"
+            >&times;</span
+          >
+          <!-- <img src="1.png" alt="Avatar" class="avatar" /> -->
+          <h1 style="text-align: center" class="sign__up">Sign Up</h1>
+        </div>
+
+        <div class="container">
+          <input type="text" placeholder="Enter Name" name="uname" />
+          <input type="email" placeholder="Enter Email" name="email" />
+          <input type="phone" placeholder="Enter Phone Number" name="phone" />
+          <input type="password" placeholder="Enter Password" name="psw" />
+          <input
+            type="checkbox"
+            onclick="enableLogin()"
+            style="margin: 26px 30px"
+            id="my-check"
+          />
+          I agree with
+          <span class="terms"> Terms of Service & Privacy Policy </span>
+          <button
+            type="submit"
+            href="#"
+            class="button__signup"
+            id="login"
+            disabled
+          >
+            Join Us
+          </button>
+        </div>
+      </form>
+    </div>
 
     <main class="l-main">
       <!--========== HOME ==========-->
@@ -73,10 +117,10 @@
       </section>
 
       <!--========== APP MOCKUP ==========-->
-      <section class="share section bd-container" id="share">
+      <section class="share section bd-container">
         <div class="share__container">
           <div class="share__img">
-            <img class="center" src="assets/img/HTML_Mockup2.png" alt="" />
+            <img class="center" src="assets/img/HTML_Mockup.png" alt="" />
           </div>
         </div>
       </section>
@@ -90,7 +134,7 @@
       </section>
 
       <!--========== CREATE ==========-->
-      <section class="share section bd-container" id="create">
+      <section class="share section bd-container">
         <div class="create__container bd-grid">
           <div class="share__data">
             <p class="create-head">Create an account</p>
@@ -139,7 +183,7 @@
     </main>
 
     <!--========== FOOTER ==========-->
-    <footer class="">
+    <footer class="footer section">
       <section class="footer" id="footer">
         <div class="footer__container sub-bd-container hd-grid ft__background">
           <div class="footer__data">

@@ -7,6 +7,7 @@
 
   /*========== Colors ==========*/
   --first-color: #c22429;
+  --second-color: #ffd7dc;
   --first-color-alt: #dc757f;
   --first-color-send: #de3b49;
   --title-color: #040707;
@@ -15,6 +16,7 @@
   --text-color: #505050;
   --text-color-light: #767676;
   --body-color: #fefbfb;
+  --nav-color: #fefbfb;
   --container-color: #fff;
 
   /*========== Font and typography ==========*/
@@ -70,6 +72,7 @@ body.dark-theme {
   --title-color: #f3f1f1;
   --text-color: #d1c7c8;
   --body-color: #040707;
+  --nav-color: var(--footer-color);
   --container-color: #302728;
 }
 
@@ -168,7 +171,8 @@ img {
   top: 0;
   left: 0;
   z-index: var(--z-fixed);
-  background-color: var(--body-color);
+  background-color: var(--nav-color);
+  /* background-color: var(--footer-color); */
 }
 
 /*========== NAV ==========*/
@@ -317,6 +321,116 @@ img {
   color: var(--header-color);
   font-size: var(--biggest-font-size);
   font-weight: var(--font-bold);
+}
+
+/*========== SIGN-UP POPUP ==========*/
+
+/* Full-width input fields */
+input[type="text"],
+input[type="email"],
+input[type="phone"],
+input[type="password"] {
+  width: 90%;
+  padding: 12px 20px;
+  margin: 8px 26px;
+  display: inline-block;
+  border: 1px solid var(--second-color);
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* Set a style for all buttons */
+.button__signup {
+  display: block;
+
+  background-color: var(--first-color);
+  color: #fff;
+  border: 1px solid var(--first-color);
+  padding: 0.1rem 1.5rem;
+  border-radius: 2rem;
+  font-weight: var(--font-semi-bold);
+  font-size: var(--h3-font-size);
+  transition: 0.3s;
+  margin: 8px 30px;
+  float: right;
+}
+
+.button__signup:hover {
+  opacity: 0.8;
+}
+
+.button__signup:disabled {
+  opacity: 0.2;
+}
+
+.terms {
+  color: var(--first-color);
+}
+
+.sign__up {
+  color: var(--first-color);
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+.avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Content Box */
+.modal-content {
+  background-color: var(--body-color);
+  margin: 15% auto;
+  border: 1px solid #888;
+  width: 60%;
+  padding-bottom: 30px;
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: var(--text-color);
+  font-size: 35px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: var(--first-color);
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  animation: zoom 0.6s;
+}
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 /*========== BUTTONS ==========*/
@@ -674,7 +788,7 @@ img {
   }
 
   .share__container {
-    margin-top: -21rem;
+    margin-top: -12rem;
     margin-bottom: -8rem;
   }
 
@@ -743,7 +857,7 @@ img {
 
   .share__container {
     padding: 0 2rem;
-    margin-top: -23rem;
+    margin-top: -15rem;
     margin-bottom: -9rem;
   }
 
