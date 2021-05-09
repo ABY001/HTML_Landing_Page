@@ -62,12 +62,13 @@
     </header>
 
     <div id="modal-wrapper" class="modal">
-      <form class="modal-content animate" action="/action_page.php">
-        <div class="imgcontainer">
-          <span
-            onclick="document.getElementById('modal-wrapper').style.display='none'"
-            class="close"
-            title="Close PopUp"
+      <form
+        class="modal-content animate"
+        name="contactform"
+        id="contactform"
+      >
+       <div class="imgcontainer">
+          <span onclick="closeForm()" class="close" title="Close PopUp"
             >&times;</span
           >
           <!-- <img src="1.png" alt="Avatar" class="avatar" /> -->
@@ -75,29 +76,50 @@
         </div>
 
         <div class="container">
-          <input type="text" placeholder="Enter Name" name="uname" />
-          <input type="email" placeholder="Enter Email" name="email" />
-          <input type="phone" placeholder="Enter Phone Number" name="phone" />
-          <input type="password" placeholder="Enter Password" name="psw" />
-          <input
-            type="checkbox"
-            onclick="enableLogin()"
-            style="margin: 26px 30px"
-            id="my-check"
-          />
-          I agree with
-          <span class="terms"> Terms of Service & Privacy Policy </span>
-          <button
-            type="submit"
-            href="#"
-            class="button__signup"
-            id="login"
-            disabled
-          >
-            Join Us
-          </button>
+          <div class="input__container">
+            <input type="text" placeholder="Enter Name" id="uname" name="fullname"/>
+          </div>
+          <div class="input__container">
+            <input type="email" placeholder="Enter Email" id="email" name="email"/>
+          </div>
+          <div class="input__container">
+            <input type="phone" placeholder="Enter Phone Number" id="phone" name="phonenumber"/>
+          </div>
+          <div class="input__container">
+            <input type="password" placeholder="Enter Password" id="psw" name="password" />
+          </div>
+          <div class="check__container">
+            <input type="checkbox" onclick="enableLogin()" id="my-check" />
+            I agree with
+            <span class="terms"> Terms of Service & Privacy Policy </span>
+          </div>
+
+          <div class="signup__container">
+            <button
+              type="submit"
+              href="#"
+              class="button__signup"
+              id="login"
+              onclick="submitForm()"
+              disabled
+            >
+              Join Us
+            </button>
+          </div>
         </div>
       </form>
+    </div>
+
+    <div class="cd-popup notification" role="alert" id="alert">
+      <div class="cd-popup-container">
+        <a href="" class="cd-popup-close cd-close-button"><i class="fa fa-times" style="pointer-events:none;"></i></a>
+        <span onclick="closeNotification()" class="cd-popup-close cd-close-button close" title="Close PopUp"
+            >&times;</span
+          >
+        <p>
+          <h3 id="notification-text">Thanks for getting in touch!</h3>
+        </p>
+      </div>
     </div>
 
     <main class="l-main">
@@ -247,5 +269,7 @@
 
     <!--========== MAIN JS ==========-->
     <script src="assets/js/main.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   </body>
 </html>

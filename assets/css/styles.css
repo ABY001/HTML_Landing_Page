@@ -330,29 +330,45 @@ input[type="text"],
 input[type="email"],
 input[type="phone"],
 input[type="password"] {
-  width: 90%;
+  width: 100%;
   padding: 12px 20px;
-  margin: 8px 26px;
   display: inline-block;
   border: 1px solid var(--second-color);
   box-sizing: border-box;
   font-size: 16px;
 }
 
-/* Set a style for all buttons */
-.button__signup {
-  display: block;
+.signup__container {
+  max-width: 90%;
+  margin: auto;
+}
 
+.input__container {
+  max-width: 90%;
+  margin: 8px auto;
+}
+
+.check__container {
+  max-width: 90%;
+  margin: 8px auto;
+  padding: 12px 0;
+}
+
+/* Set a style for all buttons */
+
+.button__signup {
   background-color: var(--first-color);
+  display: block;
   color: #fff;
-  border: 1px solid var(--first-color);
-  padding: 0.1rem 1.5rem;
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
   border-radius: 2rem;
   font-weight: var(--font-semi-bold);
   font-size: var(--h3-font-size);
-  transition: 0.3s;
-  margin: 8px 30px;
-  float: right;
+
+  /* margin: 10px 26px;
+  padding: 0.5rem 1.5rem; */
 }
 
 .button__signup:hover {
@@ -360,7 +376,7 @@ input[type="password"] {
 }
 
 .button__signup:disabled {
-  opacity: 0.2;
+  opacity: 0.5;
 }
 
 .terms {
@@ -401,10 +417,19 @@ input[type="password"] {
   background-color: var(--body-color);
   margin: 15% auto;
   border: 1px solid #888;
-  width: 60%;
+  width: 70%;
+  max-width: 968px;
   padding-bottom: 30px;
 }
 
+@media (max-width: 500px) {
+  .modal-content {
+    margin: 25% auto;
+    padding-top: 1em;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
 /* The Close Button (x) */
 .close {
   position: absolute;
@@ -918,4 +943,103 @@ input[type="password"] {
   .send__container {
     column-gap: 5rem;
   }
+}
+
+/* Popup */
+
+.cd-popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(94, 110, 141, 0.9);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+  -moz-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+  transition: opacity 0.3s 0s, visibility 0s 0.3s;
+  overflow-y: auto;
+  z-index: 10000;
+}
+
+.cd-popup.is-visible {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
+  -moz-transition: opacity 0.3s 0s, visibility 0s 0s;
+  transition: opacity 0.3s 0s, visibility 0s 0s;
+}
+
+.cd-popup-container {
+  overflow-x: hidden;
+  border: none;
+  position: relative;
+  width: 82% !important;
+  max-width: 82% !important;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background: #fff;
+  border-radius: 0.25em 0.25em 0.4em 0.4em;
+  text-align: center;
+  box-shadow: none;
+  -webkit-transform: translateY(-40px);
+  -moz-transform: translateY(-40px);
+  -ms-transform: translateY(-40px);
+  -o-transform: translateY(-40px);
+  transform: translateY(-40px);
+  /* Force Hardware Acceleration in WebKit */
+  -webkit-backface-visibility: hidden;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.cd-popup-container p {
+  margin: 0;
+  padding: 3em 1em;
+  padding-top: 1em;
+}
+
+.cd-popup-container .cd-popup-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+}
+
+.cd-close-button {
+  color: #545454;
+  border-bottom: none;
+}
+
+.cd-popup-container .cd-popup-close::before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  left: 8px;
+}
+
+.cd-popup-container .cd-popup-close::after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  right: 8px;
+}
+
+.is-visible .cd-popup-container {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
 }

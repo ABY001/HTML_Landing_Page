@@ -152,3 +152,107 @@ sr.reveal(`.create__img, .share__img, .order__data, .send__content`, {
 sr.reveal(`.share__data, .order__img, .order__data .send__img`, {
   origin: "right",
 });
+
+/*======================== SIGNUP POPUP ======================*/
+// Check for valid email syntax
+function validateEmail(email) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
+
+function closeForm() {
+  document.contactform.uname.value = "";
+  document.contactform.email.value = "";
+  document.contactform.phone.value = "";
+  document.contactform.phone.value = "";
+  document.contactform.psw.value = "";
+  document.getElementById("my-check").checked = false;
+  document.getElementById("modal-wrapper").style.display = "none";
+  document.getElementById("login").disabled = true;
+}
+
+function closeNotification() {
+  const not = document.getElementById("alert");
+  not.classList.remove("is-visible");
+}
+
+function processForm() {
+  var form = document.getElementById(contactform);
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+  });
+
+  var name = document.getElementById("uname").value;
+  var email = document.getElementById("email").value;
+  var phone = document.getElementById("phone").value;
+  var password = document.getElementById("psw").value;
+}
+
+function submitForm() {
+  var form = document.getElementById(contactform);
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+  });
+  var name = document.getElementById("uname").value;
+  var email = document.getElementById("email").value;
+  var phone = document.getElementById("phone").value;
+  var password = document.getElementById("psw").value;
+
+  if (validateEmail(email)) {
+    if (name) {
+      if (phone) {
+        if (password) {
+          // var url = "http://htmlfood.pexceptos.com/api/v1/user";
+
+          // const parameters = {
+          //   fullname: name,
+          //   password: password,
+          //   email: email,
+          //   phonenumber: phone,
+          // };
+
+          // const options = {
+          //   method: 'POST',
+          //   headers:{
+          //     'Content-Type': 'application/json'
+          //   },
+          //   body:JSON.stringify(parameters)
+          // };
+          // const response = await fetch(url, options);
+          // const data = await response.json();
+          // console.log(data);
+
+          // fetch(url, { method: "POST", body: parameters }).then((results) =>
+          //   results.json()
+          // );
+          // Neither was accepted when I set with parameters="username=myname"+"&password=mypass" as the server may not accept that
+          // xmlhttp.send(JSON.stringify(parameters));
+          closeForm();
+        } else {
+          $("#notification-text").html(
+            "<strong>Please input your password!</strong>"
+          );
+          $(".notification").addClass("is-visible");
+        }
+      } else {
+        console.log("phone");
+        $("#notification-text").html(
+          "<strong>Please provide your phone number.</strong>"
+        );
+        $(".notification").addClass("is-visible");
+      }
+    } else {
+      $("#notification-text").html("<strong>Please provide a name.</strong>");
+      $(".notification").addClass("is-visible");
+    }
+  } else {
+    $("#notification-text").html(
+      "<strong>Please use a valid email address.</strong>"
+    );
+    $(".notification").addClass("is-visible");
+  }
+
+  return false;
+}
