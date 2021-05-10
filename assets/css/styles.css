@@ -13,6 +13,7 @@
   --first-color-send: #de3b49;
   --title-color: #040707;
   --header-color: #fefbfb;
+  /* --header-border-color: var(--title-color); */
   --footer-color: #1e2121;
   --text-color: #505050;
   --text-color-light: #767676;
@@ -75,6 +76,7 @@ body.dark-theme {
   --body-color: #040707;
   --nav-color: var(--footer-color);
   --container-color: #302728;
+  /* --header-border-color: var(--nav-color); */
 }
 
 /*========== Button Dark/Light ==========*/
@@ -173,6 +175,12 @@ img {
   left: 0;
   z-index: var(--z-fixed);
   background-color: var(--nav-color);
+}
+
+.l-header.shadow {
+  -webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+  -moz-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+  box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
 }
 
 /*========== NAV ==========*/
