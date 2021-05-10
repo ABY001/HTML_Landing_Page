@@ -91,12 +91,18 @@ window.addEventListener("scroll", scrollTop);
 
 /*==================== DARK LIGHT THEME ====================*/
 const themeButton = document.getElementById("theme-button");
+const logoImage = document.getElementById("logo__switch");
+const logoImage2 = document.getElementById("logo__switch2");
 const darkTheme = "dark-theme";
 const iconTheme = "bx-toggle-right";
+const logoTheme = "logo__dark";
+const logoTheme2 = "logo__light";
 
 // Previously selected topic (if user selected)
-const selectedTheme = localStorage.getItem("selected-theme");
+var selectedTheme = localStorage.getItem("selected-theme");
 const selectedIcon = localStorage.getItem("selected-icon");
+const selectedLogo = localStorage.getItem("selected-logo");
+const selectedLogo2 = localStorage.getItem("selected-logo2");
 
 // We obtain the current theme that the interface has by validating the dark-theme class
 const getCurrentTheme = () =>
@@ -105,38 +111,74 @@ const getCurrentIcon = () =>
   themeButton.classList.contains(iconTheme)
     ? "bx-toggle-left"
     : "bx-toggle-right";
+const getCurrentLogo = () =>
+  logoImage.classList.contains(logoTheme) ? "logo__light" : "logo__dark";
+const getCurrentLogo2 = () =>
+  logoImage2.classList.contains(logoTheme2) ? "logo__dark" : "logo__light";
 
 // Switch Logo
 let lightLogo = document.getElementById("logo__switch");
 let darkLogo = document.getElementById("logo__switch2");
-let body = document.getElementById("body");
+// let body = document.getElementById("body");
 
 // if (desktop) {
 //   alert("body contains class desktop !");
 // }
 // if (themeButton.classList.contains(iconTheme)) {
-if (body.classList.contains("dark-theme")) {
-  console.log("dark");
-  lightLogo.classList.add("logo__dark");
-  lightLogo.classList.remove("logo__light");
-  darkLogo.classList.add("logo__light");
-  darkLogo.classList.remove("logo__dark");
-} else {
-  console.log("light");
-  lightLogo.classList.add("logo__light");
-  lightLogo.classList.remove("logo__dark");
-  darkLogo.classList.add("logo__dark");
-  darkLogo.classList.remove("logo__light");
-}
+// console.log("dark", selectedIcon);
+// if (!themeButton.classList.contains(iconTheme)) {
+//   console.log("dark", themeButton.classList.contains(iconTheme));
+//   lightLogo.classList.add("logo__dark");
+//   lightLogo.classList.remove("logo__light");
+//   darkLogo.classList.add("logo__light");
+//   darkLogo.classList.remove("logo__dark");
+// } else {
+//   console.log("light");
+//   lightLogo.classList.add("logo__light");
+//   lightLogo.classList.remove("logo__dark");
+//   darkLogo.classList.add("logo__dark");
+//   darkLogo.classList.remove("logo__light");
+// }
+
 // We validate if the user previously chose a topic
+
 if (selectedTheme) {
   // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
+  // console.log("selectedtheme", selectedTheme);
+  // selectedTheme === "dark" ? console.log("DARK") : console.log("LIGHT");
+  if (selectedTheme === "dark") {
+    logoImage.classList.remove("logo__dark");
+    logoImage.classList.add("logo__light");
+    logoImage2.classList.remove("logo__light");
+    logoImage2.classList.add("logo__dark");
+    // console.log("DARK");
+  } else {
+    // logoImage.classList.remove("logo_light");
+    // logoImage2.classList.add("logo_dark");
+    logoImage.classList.remove("logo__light");
+    logoImage.classList.add("logo__dark");
+    logoImage2.classList.remove("logo__dark");
+    logoImage2.classList.add("logo__light");
+    // console.log("LIGHT");
+  }
+
   document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
     darkTheme
   );
   themeButton.classList[selectedIcon === "bx-toggle-left" ? "add" : "remove"](
     iconTheme
   );
+  // console.log(selectedLogo);
+  // logoImage.classList[selectedLogo === "logo__light" ? "remove" : "add"](
+  //   logoTheme
+  // );
+  // console.log(selectedLogo2, "selectedLogo2");
+  // logoImage2.classList[selectedLogo2 === "logo__dark" ? "remove" : "add"](
+  //   logoTheme2
+  // );
+  // logoImage2.classList[selectedLogo2 === "logo__dark" ? "add" : "remove"](
+  //   logoTheme
+  // );
 }
 
 // Activate / deactivate the theme manually with the button
@@ -144,27 +186,40 @@ themeButton.addEventListener("click", () => {
   // Add or remove the dark / icon theme
   document.body.classList.toggle(darkTheme);
   themeButton.classList.toggle(iconTheme);
-  // document.getElementById("logo__switch1").style.display = "none";
+  logoImage.classList.toggle(logoTheme);
+  logoImage2.classList.toggle(logoTheme2);
+  logoImage2.classList.add("logo__dark");
 
-  // document.getElementById("logo__switch1").style.display === "block"
-  //   ? secondSwitch()
-  //   : firstSwitch();
+  // console.log("clicked", getCurrentTheme());
 
-  // document.getElementById("logo__switch2").style.display = "block";
+  if (getCurrentTheme() === "light") {
+    logoImage.classList.remove("logo__light");
+    logoImage.classList.add("logo__dark");
+    logoImage2.classList.remove("logo__dark");
+    logoImage2.classList.add("logo__light");
+    // console.log("D => L");
+  }
+
+  // console.log("entry", selectedIcon);
+  // if (selectedIcon === "bx-toggle-left") {
+  //   console.log("1", selectedIcon);
+  //   lightLogo.classList.add("logo__dark");
+  //   lightLogo.classList.remove("logo__light");
+  //   darkLogo.classList.add("logo__light");
+  //   darkLogo.classList.remove("logo__dark");
+  // } else {
+  //   console.log("2", selectedIcon);
+  //   lightLogo.classList.add("logo__light");
+  //   lightLogo.classList.remove("logo__dark");
+  //   darkLogo.classList.add("logo__dark");
+  //   darkLogo.classList.remove("logo__light");
+  // }
   // We save the theme and the current icon that the user chose
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
+  localStorage.setItem("selected-logo", getCurrentLogo());
+  localStorage.setItem("selected-logo2", getCurrentLogo2());
 });
-
-// function firstSwitch() {
-//   document.getElementById("logo__switch1").style.display = "none";
-//   document.getElementById("logo__switch2").style.display = "block";
-// }
-
-// function secondSwitch() {
-//   document.getElementById("logo__switch2").style.display = "none";
-//   document.getElementById("logo__switch1").style.display = "block";
-// }
 
 /*==================== SCROLL REVEAL ANIMATION ====================*/
 const sr = ScrollReveal({
@@ -242,7 +297,7 @@ signUpRequest = async () => {
   try {
     const fetchResponse = await fetch(url, settings);
     const data = await fetchResponse.json();
-    console.log(data);
+    // console.log(data);
     if (data) {
       if (data.status == "OK") {
         document.contactform.uname.value = "";
