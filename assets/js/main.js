@@ -203,7 +203,28 @@ signUpRequest = async () => {
     const fetchResponse = await fetch(url, settings);
     const data = await fetchResponse.json();
     console.log(data);
-    return data;
+    if (data) {
+      if (data.status == "OK") {
+        document.contactform.uname.value = "";
+        document.contactform.email.value = "";
+        document.contactform.phone.value = "";
+        document.contactform.phone.value = "";
+        document.contactform.psw.value = "";
+        document.getElementById("my-check").checked = false;
+        document.getElementById("modal-wrapper").style.display = "none";
+        document.getElementById("login").disabled = true;
+        $("#notification-text").html(
+          "<strong>You can now proceed to login in your mobile app.<br/>Thanks for getting in touch!</h3></strong>"
+        );
+        $(".notification").addClass("is-visible");
+        return data;
+      } else {
+        $("#notification-text").html("<strong>" + data.message + "</strong>");
+        $(".notification").addClass("is-visible");
+      }
+    } else {
+      return;
+    }
   } catch (e) {
     return e;
   }
@@ -220,7 +241,6 @@ function submitForm() {
       if (phone) {
         if (password) {
           signUpRequest();
-          closeForm();
         } else {
           $("#notification-text").html(
             "<strong>Please input your password!</strong>"
@@ -243,6 +263,6 @@ function submitForm() {
     );
     $(".notification").addClass("is-visible");
   }
-  $(".notification").addClass("is-visible");
+  // $(".notification").addClass("is-visible");
   return false;
 }
