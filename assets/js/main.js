@@ -106,6 +106,28 @@ const getCurrentIcon = () =>
     ? "bx-toggle-left"
     : "bx-toggle-right";
 
+// Switch Logo
+let lightLogo = document.getElementById("logo__switch");
+let darkLogo = document.getElementById("logo__switch2");
+let body = document.getElementById("body");
+
+// if (desktop) {
+//   alert("body contains class desktop !");
+// }
+// if (themeButton.classList.contains(iconTheme)) {
+if (body.classList.contains("dark-theme")) {
+  console.log("dark");
+  lightLogo.classList.add("logo__dark");
+  lightLogo.classList.remove("logo__light");
+  darkLogo.classList.add("logo__light");
+  darkLogo.classList.remove("logo__dark");
+} else {
+  console.log("light");
+  lightLogo.classList.add("logo__light");
+  lightLogo.classList.remove("logo__dark");
+  darkLogo.classList.add("logo__dark");
+  darkLogo.classList.remove("logo__light");
+}
 // We validate if the user previously chose a topic
 if (selectedTheme) {
   // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
@@ -122,10 +144,27 @@ themeButton.addEventListener("click", () => {
   // Add or remove the dark / icon theme
   document.body.classList.toggle(darkTheme);
   themeButton.classList.toggle(iconTheme);
+  // document.getElementById("logo__switch1").style.display = "none";
+
+  // document.getElementById("logo__switch1").style.display === "block"
+  //   ? secondSwitch()
+  //   : firstSwitch();
+
+  // document.getElementById("logo__switch2").style.display = "block";
   // We save the theme and the current icon that the user chose
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
+
+// function firstSwitch() {
+//   document.getElementById("logo__switch1").style.display = "none";
+//   document.getElementById("logo__switch2").style.display = "block";
+// }
+
+// function secondSwitch() {
+//   document.getElementById("logo__switch2").style.display = "none";
+//   document.getElementById("logo__switch1").style.display = "block";
+// }
 
 /*==================== SCROLL REVEAL ANIMATION ====================*/
 const sr = ScrollReveal({
@@ -156,7 +195,8 @@ sr.reveal(`.share__data, .order__img, .order__data .send__img`, {
 /*======================== SIGNUP POPUP ======================*/
 // Check for valid email syntax
 function validateEmail(email) {
-  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  var re =
+    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
 }
 
@@ -267,14 +307,14 @@ function submitForm() {
   return false;
 }
 
-var header = $(".header");
+// var header = $(".header");
 
-$(window).scroll(function (e) {
-  if (header.offset().top !== 0) {
-    if (!header.hasClass("shadow")) {
-      header.addClass("shadow");
-    }
-  } else {
-    header.removeClass("shadow");
-  }
-});
+// $(window).scroll(function (e) {
+//   if (header.offset().top !== 0) {
+//     if (!header.hasClass("shadow")) {
+//       header.addClass("shadow");
+//     }
+//   } else {
+//     header.removeClass("shadow");
+//   }
+// });

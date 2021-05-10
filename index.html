@@ -16,19 +16,19 @@
 
     <title>HTML Foods</title>
   </head>
-  <body>
+  <body id="body">
     <!--========== SCROLL TOP ==========-->
     <a href="#" class="scrolltop" id="scroll-top">
       <i class="bx bx-up-arrow-alt scrolltop__icon"></i>
     </a>
 
     <!--========== HEADER ==========-->
-    <header class="l-header" id="header">
+    <header class="l-header shadow" id="header">
       <nav class="nav bd-container">
-        <a href="#" class="nav__logo"
-          ><img src="assets/img/HTML_Logo.png" alt="HTML_Logo"
-        /></a>
-
+        <a href="#" class="nav__logo">
+          <img src="assets/img/HTML_Logo.png" alt="HTML_Logo" id="logo__switch"/>
+          <img src="assets/img/HTML_Logo_Alt.png" alt="HTML_Logo" id="logo__switch2"/>
+      </a>
         <div class="nav__menu" id="nav-menu">
           <ul class="nav__list">
             <li class="nav__item">
@@ -127,19 +127,19 @@
       <section class="home" id="home">
         <div class="home__container sub-bd-container hd-grid bd__background">
           <div class="home__data">
-            <p class="home__title">Food app</p>
+            <!-- <p class="home__title">Food app</p> -->
             <p class="home__description">
-              Why stay hungry when you can order from HTML Foods
+              Why stay hungry when you can order from &lt;&gt;html.FOODS&lt;/&gt;
             </p>
-            <p class="home__title">Download HTML Foods` app now on</p>
-            <a href="#" class="button">Playstore</a>
-            <a href="#" class="button__alt">App store</a>
+            <p class="home__title">Download the &lt;&gt;html.FOODS&lt;/&gt; app now on</p>
+            <a href="#" class="footer__apps"><img src="assets/img/PlayStore_Logo.png" alt="PlayStore"/></a>
+            <a href="#" class="footer__apps"><img src="assets/img/App_Store_Logo.png" alt="App_Store"/></a>
           </div>
         </div>
       </section>
 
       <!--========== APP MOCKUP ==========-->
-      <section class="share section bd-container">
+      <section class="share section__alt bd-container">
         <div class="share__container">
           <div class="share__img">
             <img class="center" src="assets/img/HTML_Mockup.png" alt="" />
@@ -148,20 +148,20 @@
       </section>
 
       <!--========== WORKS ==========-->
-      <section class="work section bd-container" id="work">
+      <section class="work section__alt bd-container" id="work">
         <div class="bd-grid">
           <div class="work__underline"></div>
-          <h2 class="section-title">How the app works</h2>
+          <h2 class="section-title" style="font-size: 2rem;">How the App works</h2>
         </div>
       </section>
 
       <!--========== CREATE ==========-->
-      <section class="share section bd-container">
+      <section class="share section__alt bd-container">
         <div class="create__container bd-grid">
           <div class="share__data">
-            <p class="create-head">Create an account</p>
+            <p class="create-head">1. Create an Account</p>
             <h2 class="section-title-center">
-              Create/login to an existing account to get started
+              Sign up/login to an existing account to get started
             </h2>
             <p class="share__description">
               An account is created with your email and a desired password
@@ -174,12 +174,12 @@
 
         <div class="create__container bd-grid">
           <div class="order__data">
-            <p class="create-head">Explore varieties</p>
+            <p class="create-head">2. Explore Varieties</p>
             <h2 class="section-title-center">
-              Shop for your favorite meal as e dey hot.
+              Order a meal, book for raw food delivery and lots more
             </h2>
             <p class="share__description">
-              Shop for your favorite meals or drinks and enjoy while doing it.
+             Order for friends and family. Share the love!
             </p>
           </div>
           <div class="order__img">
@@ -189,12 +189,12 @@
 
         <div class="create__container bd-grid">
           <div class="share__data">
-            <p class="create-head">Checkout</p>
+            <p class="create-head">3. Checkout</p>
             <h2 class="section-title-center">
-              When you are done, checkout and get it delivered
+              Once payment is made, your order will be processed and on its way to you
             </h2>
             <p class="share__description">
-              When you are done, checkout and get it delivered with ease
+              Signup/login, explore, checkout. That's it! Easy breezy!
             </p>
           </div>
           <div class="create__img">
@@ -214,8 +214,8 @@
               Available on your favorite store. Start your premium experience
               now
             </p>
-            <a href="#" class="button">Playstore</a>
-            <a href="#" class="button__alt__footer">App store</a>
+            <a href="#" class="footer__apps"><img src="assets/img/PlayStore_Logo.png" alt="PlayStore"/></a>
+            <a href="#" class="footer__apps"><img src="assets/img/App_Store_Logo.png" alt="App_Store"/></a>
           </div>
         </div>
       </section>

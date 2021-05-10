@@ -1,5 +1,5 @@
 /*===== GOOGLE FONTS =====*/
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&display=swap");
 
 /*===== VARIABLES CSS =====*/
 :root {
@@ -22,7 +22,7 @@
   --container-color: #fff;
 
   /*========== Font and typography ==========*/
-  --body-font: "Poppins", sans-serif;
+  --body-font: "Montserrat", bariol;
   --biggest-font-size: 2rem;
   --h2-font-size: 1.25rem;
   --h3-font-size: 1.125rem;
@@ -31,7 +31,7 @@
 
   /*========== Font weight ==========*/
   --font-semi-bold: 600;
-  --font-light: 10;
+  --font-light: 400;
   --font-bold: 700;
 
   /*========== Margenes ==========*/
@@ -77,6 +77,14 @@ body.dark-theme {
   --nav-color: var(--footer-color);
   --container-color: #302728;
   /* --header-border-color: var(--nav-color); */
+}
+
+.logo__dark {
+  display: none;
+}
+
+.logo__light {
+  display: block;
 }
 
 /*========== Button Dark/Light ==========*/
@@ -132,6 +140,10 @@ img {
 /*========== CLASS CSS ==========*/
 .section {
   padding: 4rem 0 2rem;
+}
+
+.section__alt {
+  padding: 0.5rem 0 0.5rem;
 }
 
 .section-title,
@@ -323,6 +335,8 @@ img {
   margin: 0 auto;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .home__description {
@@ -557,6 +571,10 @@ input[type="password"] {
   border-bottom: 3px solid #e4e4e4;
 }
 
+.work {
+  margin-top: 6rem;
+}
+
 /*========== CREATE ==========*/
 .create__img {
   justify-self: center;
@@ -715,11 +733,17 @@ input[type="password"] {
   align-items: center;
 }
 
+.footer__apps {
+  margin: 7px;
+}
+
 .footer__data {
   max-width: 968px;
   margin: 0 auto;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .footer__container {
@@ -829,6 +853,11 @@ input[type="password"] {
     color: var(--first-color);
     border: 1px solid var(--first-color);
   }
+
+  .share__container {
+    margin-top: 0rem;
+    margin-bottom: -6rem;
+  }
 }
 
 @media screen and (min-width: 576px) {
@@ -849,8 +878,8 @@ input[type="password"] {
   }
 
   .share__container {
-    margin-top: -12rem;
-    margin-bottom: -8rem;
+    margin-top: -11rem;
+    margin-bottom: -6rem;
   }
 
   .create__img {
@@ -885,8 +914,16 @@ input[type="password"] {
     margin: 0;
   }
 
+  .work {
+    margin-top: 8rem;
+  }
+
   .section {
     padding-top: 7rem;
+  }
+
+  .section__alt {
+    padding-top: 1rem;
   }
 
   .section__footer {
@@ -930,7 +967,7 @@ input[type="password"] {
 
   .share__container {
     padding: 0 2rem;
-    margin-top: -15rem;
+    margin-top: -9rem;
     margin-bottom: -9rem;
   }
 
@@ -976,6 +1013,10 @@ input[type="password"] {
   .bd-container {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .work {
+    margin-top: 7.5rem;
   }
 
   .home__img,
