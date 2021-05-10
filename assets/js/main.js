@@ -176,25 +176,59 @@ function closeNotification() {
   not.classList.remove("is-visible");
 }
 
-function processForm() {
-  var form = document.getElementById(contactform);
+// function processForm() {
+//   var form = document.getElementById(contactform);
 
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-  });
+//   form.addEventListener("submit", function (event) {
+//     event.preventDefault();
+//   });
 
+//   var name = document.getElementById("uname").value;
+//   var email = document.getElementById("email").value;
+//   var phone = document.getElementById("phone").value;
+//   var password = document.getElementById("psw").value;
+// }
+
+signUpRequest = async () => {
+  var url = "http://htmlfood.pexceptos.com/api/v1/user";
   var name = document.getElementById("uname").value;
   var email = document.getElementById("email").value;
   var phone = document.getElementById("phone").value;
   var password = document.getElementById("psw").value;
-}
+
+  const parameters = {
+    fullname: name,
+    password: password,
+    email: email,
+    phonenumber: phone,
+  };
+
+  const settings = {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(parameters),
+  };
+
+  try {
+    const fetchResponse = await fetch(url, settings);
+    const data = await fetchResponse.json();
+    console.log(data);
+    return data;
+  } catch (e) {
+    return e;
+  }
+};
 
 function submitForm() {
-  var form = document.getElementById(contactform);
+  // var form = document.getElementById(contactform);
 
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-  });
+  // form.addEventListener("submit", function (event) {
+  //   event.preventDefault();
+  // });
+  // console.log("done");
   var name = document.getElementById("uname").value;
   var email = document.getElementById("email").value;
   var phone = document.getElementById("phone").value;
@@ -206,29 +240,22 @@ function submitForm() {
         if (password) {
           // var url = "http://htmlfood.pexceptos.com/api/v1/user";
 
-          // const parameters = {
-          //   fullname: name,
-          //   password: password,
-          //   email: email,
-          //   phonenumber: phone,
-          // };
-
           // const options = {
-          //   method: 'POST',
-          //   headers:{
-          //     'Content-Type': 'application/json'
+          //   method: "POST",
+          //   headers: {
+          //     "Content-Type": "application/json",
           //   },
-          //   body:JSON.stringify(parameters)
+          //   body: JSON.stringify(parameters),
           // };
           // const response = await fetch(url, options);
           // const data = await response.json();
           // console.log(data);
 
-          // fetch(url, { method: "POST", body: parameters }).then((results) =>
-          //   results.json()
-          // );
-          // Neither was accepted when I set with parameters="username=myname"+"&password=mypass" as the server may not accept that
-          // xmlhttp.send(JSON.stringify(parameters));
+          // // fetch(url, { method: "POST", body: parameters }).then((results) =>
+          // //   console.log(results.json())
+          // // );
+          signUpRequest();
+
           closeForm();
         } else {
           $("#notification-text").html(
@@ -237,7 +264,6 @@ function submitForm() {
           $(".notification").addClass("is-visible");
         }
       } else {
-        console.log("phone");
         $("#notification-text").html(
           "<strong>Please provide your phone number.</strong>"
         );
@@ -253,6 +279,6 @@ function submitForm() {
     );
     $(".notification").addClass("is-visible");
   }
-
+  $(".notification").addClass("is-visible");
   return false;
 }
