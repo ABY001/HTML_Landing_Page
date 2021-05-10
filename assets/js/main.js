@@ -176,19 +176,6 @@ function closeNotification() {
   not.classList.remove("is-visible");
 }
 
-// function processForm() {
-//   var form = document.getElementById(contactform);
-
-//   form.addEventListener("submit", function (event) {
-//     event.preventDefault();
-//   });
-
-//   var name = document.getElementById("uname").value;
-//   var email = document.getElementById("email").value;
-//   var phone = document.getElementById("phone").value;
-//   var password = document.getElementById("psw").value;
-// }
-
 signUpRequest = async () => {
   var url = "http://htmlfood.pexceptos.com/api/v1/user";
   var name = document.getElementById("uname").value;
@@ -223,12 +210,6 @@ signUpRequest = async () => {
 };
 
 function submitForm() {
-  // var form = document.getElementById(contactform);
-
-  // form.addEventListener("submit", function (event) {
-  //   event.preventDefault();
-  // });
-  // console.log("done");
   var name = document.getElementById("uname").value;
   var email = document.getElementById("email").value;
   var phone = document.getElementById("phone").value;
@@ -238,24 +219,7 @@ function submitForm() {
     if (name) {
       if (phone) {
         if (password) {
-          // var url = "http://htmlfood.pexceptos.com/api/v1/user";
-
-          // const options = {
-          //   method: "POST",
-          //   headers: {
-          //     "Content-Type": "application/json",
-          //   },
-          //   body: JSON.stringify(parameters),
-          // };
-          // const response = await fetch(url, options);
-          // const data = await response.json();
-          // console.log(data);
-
-          // // fetch(url, { method: "POST", body: parameters }).then((results) =>
-          // //   console.log(results.json())
-          // // );
           signUpRequest();
-
           closeForm();
         } else {
           $("#notification-text").html(
