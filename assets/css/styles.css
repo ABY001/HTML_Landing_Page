@@ -794,8 +794,8 @@ input[type="password"] {
 }
 
 .store__icon {
-  width: 130px;
-  height: 40px;
+  width: 8.125rem;
+  height: 2.5rem;
   margin: 0.5rem;
   image-rendering: -webkit-optimize-contrast;
 }
