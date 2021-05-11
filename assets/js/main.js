@@ -126,8 +126,6 @@ if (selectedTheme) {
     logoImage2.classList.add("logo__dark");
     // console.log("DARK");
   } else {
-    // logoImage.classList.remove("logo_light");
-    // logoImage2.classList.add("logo_dark");
     logoImage.classList.remove("logo__light");
     logoImage.classList.add("logo__dark");
     logoImage2.classList.remove("logo__dark");
