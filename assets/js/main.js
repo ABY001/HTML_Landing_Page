@@ -30,14 +30,10 @@ function enableLogin() {
 
   const login = document.getElementById("login");
 
-  // document.getElementById('my-input-id').disabled = false;
-
   // If the checkbox is checked, display the output text
-  if (enableBtn.checked == true) {
-    login.disabled = false;
-  } else {
-    login.disabled = true;
-  }
+  enableBtn.checked == true
+    ? (login.disabled = false)
+    : (login.disabled = true);
 }
 
 function linkAction() {
@@ -119,33 +115,10 @@ const getCurrentLogo2 = () =>
 // Switch Logo
 let lightLogo = document.getElementById("logo__switch");
 let darkLogo = document.getElementById("logo__switch2");
-// let body = document.getElementById("body");
-
-// if (desktop) {
-//   alert("body contains class desktop !");
-// }
-// if (themeButton.classList.contains(iconTheme)) {
-// console.log("dark", selectedIcon);
-// if (!themeButton.classList.contains(iconTheme)) {
-//   console.log("dark", themeButton.classList.contains(iconTheme));
-//   lightLogo.classList.add("logo__dark");
-//   lightLogo.classList.remove("logo__light");
-//   darkLogo.classList.add("logo__light");
-//   darkLogo.classList.remove("logo__dark");
-// } else {
-//   console.log("light");
-//   lightLogo.classList.add("logo__light");
-//   lightLogo.classList.remove("logo__dark");
-//   darkLogo.classList.add("logo__dark");
-//   darkLogo.classList.remove("logo__light");
-// }
 
 // We validate if the user previously chose a topic
-
 if (selectedTheme) {
   // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
-  // console.log("selectedtheme", selectedTheme);
-  // selectedTheme === "dark" ? console.log("DARK") : console.log("LIGHT");
   if (selectedTheme === "dark") {
     logoImage.classList.remove("logo__dark");
     logoImage.classList.add("logo__light");
@@ -168,17 +141,6 @@ if (selectedTheme) {
   themeButton.classList[selectedIcon === "bx-toggle-left" ? "add" : "remove"](
     iconTheme
   );
-  // console.log(selectedLogo);
-  // logoImage.classList[selectedLogo === "logo__light" ? "remove" : "add"](
-  //   logoTheme
-  // );
-  // console.log(selectedLogo2, "selectedLogo2");
-  // logoImage2.classList[selectedLogo2 === "logo__dark" ? "remove" : "add"](
-  //   logoTheme2
-  // );
-  // logoImage2.classList[selectedLogo2 === "logo__dark" ? "add" : "remove"](
-  //   logoTheme
-  // );
 }
 
 // Activate / deactivate the theme manually with the button
@@ -190,8 +152,6 @@ themeButton.addEventListener("click", () => {
   logoImage2.classList.toggle(logoTheme2);
   logoImage2.classList.add("logo__dark");
 
-  // console.log("clicked", getCurrentTheme());
-
   if (getCurrentTheme() === "light") {
     logoImage.classList.remove("logo__light");
     logoImage.classList.add("logo__dark");
@@ -200,20 +160,6 @@ themeButton.addEventListener("click", () => {
     // console.log("D => L");
   }
 
-  // console.log("entry", selectedIcon);
-  // if (selectedIcon === "bx-toggle-left") {
-  //   console.log("1", selectedIcon);
-  //   lightLogo.classList.add("logo__dark");
-  //   lightLogo.classList.remove("logo__light");
-  //   darkLogo.classList.add("logo__light");
-  //   darkLogo.classList.remove("logo__dark");
-  // } else {
-  //   console.log("2", selectedIcon);
-  //   lightLogo.classList.add("logo__light");
-  //   lightLogo.classList.remove("logo__dark");
-  //   darkLogo.classList.add("logo__dark");
-  //   darkLogo.classList.remove("logo__light");
-  // }
   // We save the theme and the current icon that the user chose
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
@@ -361,15 +307,3 @@ function submitForm() {
   // $(".notification").addClass("is-visible");
   return false;
 }
-
-// var header = $(".header");
-
-// $(window).scroll(function (e) {
-//   if (header.offset().top !== 0) {
-//     if (!header.hasClass("shadow")) {
-//       header.addClass("shadow");
-//     }
-//   } else {
-//     header.removeClass("shadow");
-//   }
-// });
