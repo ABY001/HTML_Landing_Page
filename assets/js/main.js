@@ -90,7 +90,7 @@ const themeButton = document.getElementById("theme-button");
 const logoImage = document.getElementById("logo__switch");
 const logoImage2 = document.getElementById("logo__switch2");
 const darkTheme = "dark-theme";
-const iconTheme = "bx-toggle-right";
+const iconTheme = "bx-moon";
 const logoTheme = "logo__dark";
 const logoTheme2 = "logo__light";
 
@@ -104,9 +104,7 @@ const selectedLogo2 = localStorage.getItem("selected-logo2");
 const getCurrentTheme = () =>
   document.body.classList.contains(darkTheme) ? "dark" : "light";
 const getCurrentIcon = () =>
-  themeButton.classList.contains(iconTheme)
-    ? "bx-toggle-left"
-    : "bx-toggle-right";
+  themeButton.classList.contains(iconTheme) ? "bxs-moon" : "bx-moon";
 const getCurrentLogo = () =>
   logoImage.classList.contains(logoTheme) ? "logo__light" : "logo__dark";
 const getCurrentLogo2 = () =>
@@ -136,7 +134,7 @@ if (selectedTheme) {
   document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
     darkTheme
   );
-  themeButton.classList[selectedIcon === "bx-toggle-left" ? "add" : "remove"](
+  themeButton.classList[selectedIcon === "bxs-moon" ? "add" : "remove"](
     iconTheme
   );
 }
