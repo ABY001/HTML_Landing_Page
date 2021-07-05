@@ -9,6 +9,7 @@
       href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link href="assets/img/favicon.ico" rel="icon" type="image/x-icon" />
 
     <!--========== CSS ==========-->
@@ -87,6 +88,9 @@
           <div class="input__container">
             <input type="password" placeholder="Enter Password" id="psw" name="password" />
           </div>
+          <div class="input__container">
+            <input type="password" placeholder="Confirm Password" id="psw2" name="password" />
+          </div>
           <div class="check__container">
             <input type="checkbox" onclick="enableLogin()" id="my-check" />
             I agree with
@@ -101,7 +105,7 @@
               id="login"
               onclick="submitForm()"
               disabled
-            >
+            > <i id="loading" class="fa fa-spinner fa-spin"></i>
               Join Us
             </button>
           </div>

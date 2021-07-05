@@ -203,6 +203,7 @@ function closeForm() {
   document.contactform.phone.value = "";
   document.contactform.phone.value = "";
   document.contactform.psw.value = "";
+  document.contactform.psw2.value = "";
   document.getElementById("my-check").checked = false;
   document.getElementById("modal-wrapper").style.display = "none";
   document.getElementById("login").disabled = true;
@@ -214,7 +215,7 @@ function closeNotification() {
 }
 
 signUpRequest = async () => {
-  var url = "http://htmlfood.pexceptos.com/api/v1/user";
+  var url = "https://htmlfood.herokuapp.com/api/v1/user";
   var name = document.getElementById("uname").value;
   var email = document.getElementById("email").value;
   var phone = document.getElementById("phone").value;
@@ -237,6 +238,7 @@ signUpRequest = async () => {
   };
 
   try {
+    document.getElementById("loading").style.display = "block";
     const fetchResponse = await fetch(url, settings);
     const data = await fetchResponse.json();
     // console.log(data);
@@ -247,6 +249,7 @@ signUpRequest = async () => {
         document.contactform.phone.value = "";
         document.contactform.phone.value = "";
         document.contactform.psw.value = "";
+        document.contactform.psw2.value = "";
         document.getElementById("my-check").checked = false;
         document.getElementById("modal-wrapper").style.display = "none";
         document.getElementById("login").disabled = true;
@@ -265,6 +268,7 @@ signUpRequest = async () => {
   } catch (e) {
     return e;
   }
+  document.getElementById("loading").style.display = "none";
 };
 
 function submitForm() {
@@ -272,12 +276,27 @@ function submitForm() {
   var email = document.getElementById("email").value;
   var phone = document.getElementById("phone").value;
   var password = document.getElementById("psw").value;
+  var password2 = document.getElementById("psw2").value;
 
   if (validateEmail(email)) {
     if (name) {
       if (phone) {
         if (password) {
-          signUpRequest();
+          if (password2) {
+            if (password === password2) {
+              signUpRequest();
+            } else {
+              $("#notification-text").html(
+                "<strong>Please make sure your password match!</strong>"
+              );
+              $(".notification").addClass("is-visible");
+            }
+          } else {
+            $("#notification-text").html(
+              "<strong>Please confirm your password!</strong>"
+            );
+            $(".notification").addClass("is-visible");
+          }
         } else {
           $("#notification-text").html(
             "<strong>Please input your password!</strong>"
