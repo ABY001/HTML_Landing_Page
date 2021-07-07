@@ -238,6 +238,7 @@ signUpRequest = async () => {
   };
 
   try {
+    document.getElementById("unloading").style.display = "none";
     document.getElementById("loading").style.display = "block";
     const fetchResponse = await fetch(url, settings);
     const data = await fetchResponse.json();
@@ -269,6 +270,7 @@ signUpRequest = async () => {
     return e;
   }
   document.getElementById("loading").style.display = "none";
+  document.getElementById("unloading").style.display = "block";
 };
 
 function submitForm() {
