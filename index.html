@@ -83,6 +83,14 @@
             <input type="email" placeholder="Enter Email" id="email" name="email"/>
           </div>
           <div class="input__container">
+            <select type="email" id="gender" name="gender" required>
+              <option value="" disabled selected hidden>Enter Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              </select>
+
+          </div>
+          <div class="input__container">
             <input type="phone" placeholder="Enter Phone Number" id="phone" name="phonenumber"/>
           </div>
           <div class="input__container">
@@ -105,8 +113,8 @@
               id="login"
               onclick="submitForm()"
               disabled
-            > <span><i id="loading" class="fa fa-spinner fa-spin"></i>
-             <span id="unloading"> Join Us</span>
+            > <i id="loading" class="fa fa-spinner fa-spin"></i>
+            <span id="unloading">Join Us</span>
             </button>
           </div>
         </div>
