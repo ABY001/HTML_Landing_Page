@@ -36,22 +36,25 @@
               <a href="#home" class="nav__link active-link">Home</a>
             </li>
             <li class="nav__item">
-              <a href="#work" class="nav__link">App</a>
-            </li>
-            <li class="nav__item">
-              <a href="#footer" class="nav__link">Download</a>
+              <a href="#download" class="nav__link">Download</a>
             </li>
             <li class="nav__item">
               <a
-                href="#modal-wrapper"
+                href="#register"
                 class="nav__link"
-                onclick="document.getElementById('modal-wrapper').style.display='block'"
+                onclick="document.getElementById('register').style.display='block'"
                 >Register</a
               >
             </li>
+            <!-- <li class="nav__item">
+              <a href="#download" class="nav__link">About us</a>
+            </li> -->
+            <li class="nav__item">
+              <a href="#about-us" class="nav__link">About Us</a>
+            </li>
 
             <li>
-              <i class="bx bxs-moon change-theme" id="theme-button"></i>
+              <i class="bx bxs-bulb change-theme" id="theme-button"></i>
             </li>
           </ul>
         </div>
@@ -62,7 +65,7 @@
       </nav>
     </header>
 
-    <div id="modal-wrapper" class="modal">
+    <div id="register" class="modal">
       <form
         class="modal-content animate"
         name="contactform"
@@ -84,14 +87,56 @@
           </div>
           <div class="input__container">
             <select type="email" id="gender" name="gender" required>
-              <option value="" disabled selected hidden>Enter Gender</option>
+              <option value="" disabled selected hidden>Select Gender</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
               </select>
-
           </div>
           <div class="input__container">
             <input type="phone" placeholder="Enter Phone Number" id="phone" name="phonenumber"/>
+          </div>
+          <div class="input__container">
+            <select id="location" name="location" required>
+              <option value="" disabled selected hidden>Select Current Location</option>
+                <option value="ABUJA">ABUJA FCT</option>
+                <option value="ABIA">ABIA</option>
+                <option value="ADAMAWA">ADAMAWA</option>
+                <option value="AKWA IBOM">AKWA IBOM</option>
+                <option value="ANAMBRA">ANAMBRA</option>
+                <option value="BAUCHI">BAUCHI</option>
+                <option value="BAYELSA">BAYELSA</option>
+                <option value="BENUE">BENUE</option>
+                <option value="BORNO">BORNO</option>
+                <option value="CROSS RIVER">CROSS RIVER</option>
+                <option value="DELTA">DELTA</option>
+                <option value="EBONYI">EBONYI</option>
+                <option value="EDO">EDO</option>
+                <option value="EKITI">EKITI</option>
+                <option value="ENUGU">ENUGU</option>
+                <option value="GOMBE">GOMBE</option>
+                <option value="IMO">IMO</option>
+                <option value="JIGAWA">JIGAWA</option>
+                <option value="KADUNA">KADUNA</option>
+                <option value="KANO">KANO</option>
+                <option value="KATSINA">KATSINA</option>
+                <option value="KEBBI">KEBBI</option>
+                <option value="KOGI">KOGI</option>
+                <option value="KWARA">KWARA</option>
+                <option value="LAGOS">LAGOS</option>
+                <option value="NASSARAWA">NASSARAWA</option>
+                <option value="NIGER">NIGER</option>
+                <option value="OGUN">OGUN</option>
+                <option value="ONDO">ONDO</option>
+                <option value="OSUN">OSUN</option>
+                <option value="OYO">OYO</option>
+                <option value="PLATEAU">PLATEAU</option>
+                <option value="RIVERS">RIVERS</option>
+                <option value="SOKOTO">SOKOTO</option>
+                <option value="TARABA">TARABA</option>
+                <option value="YOBE">YOBE</option>
+                <option value="ZAMFARA">ZAMFARA</option>
+                </select>
+              </select>
           </div>
           <div class="input__container">
             <input type="password" placeholder="Enter Password" id="psw" name="password" />
@@ -160,9 +205,9 @@
       </section>
 
       <!--========== WORKS ==========-->
-      <section class="work section__alt bd-container" id="work">
+      <section class="download section__alt bd-container" id="download">
         <div class="bd-grid">
-          <div class="work__underline"></div>
+          <div class="download__underline"></div>
           <h2 class="section-title" style="font-size: 2rem;">How the App Works</h2>
         </div>
       </section>
@@ -214,6 +259,24 @@
           </div>
         </div>
       </section>
+
+      
+      <!--========== ABOUT US ==========-->
+      <section class="about-us section__alt bd-container" id="about-us">
+        <div class="bd-grid">
+          <div class="download__underline"></div>
+          <h2 class="section-title" style="font-size: 2rem;">About Us</h2>
+          <div class="share__data" style="margin-bottom: 2rem">
+            <p class="share__description">
+              <b>HTML FOODS</b> is a food service company that caters for people daily food needs.</p>
+              <p class="share__description"><b>HTML FOODS</b> offers customized food solutions through deliveries , catering and packaged processed farm produce using design thinking, creative intelligence and technology.</p>
+              <p class="share__description">The food services and products of <b>HTML FOODS</b> cuts across hospitality (catering), agriculture and allied processing ensuring healthy and nutritional minded products.</p>
+              <p class="share__description"><b>HTML</b> means “Hyper Tasty Meal Language”</p>
+              <p class="share__description"><b>HTML FOODS</b> - The edible language</p>
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!--========== FOOTER ==========-->
@@ -244,6 +307,9 @@
               /></a>
               <a href="https://t.co/G4hMA4pvjK" class="footer__social" target="_blank"
               ><img src="assets/img/instagram.png" alt="instagram"
+            /></a>
+              <a href="https://wa.me/2349067019742" style="margin-right: -0.2rem" class="footer__social" target="_blank"
+              ><img src="assets/img/whatsapp.png" alt="whatsapp"
             /></a>
             </div>
 

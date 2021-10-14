@@ -233,7 +233,7 @@ img {
 /* Modal Content Box */
 .modal-content {
   background-color: var(--body-color);
-  margin: 10% auto;
+  margin: 3% auto;
   border: 1px solid #888;
   width: 70%;
   max-width: 968px;
@@ -492,7 +492,7 @@ select, option {
 
 @media (max-width: 500px) {
   .modal-content {
-    margin: 25% auto;
+    margin: 10% auto;
     padding-top: 1em;
     width: 100% !important;
     max-width: 100% !important;
@@ -612,11 +612,11 @@ select, option {
 }
 
 /*========== WORK ==========*/
-.work__underline {
+.download__underline {
   border-bottom: 3px solid #e4e4e4;
 }
 
-.work {
+.download {
   margin-top: 6rem;
 }
 
@@ -823,6 +823,9 @@ select, option {
   width: 8.125rem;
   height: 2.5rem;
   margin: 0.5rem;
+  opacity: 1;
+  background-color: white !important;
+  border-color: transparent !important;
   image-rendering: -webkit-optimize-contrast;
 }
 
@@ -951,7 +954,7 @@ select, option {
     margin: 0;
   }
 
-  .work {
+  .download {
     margin-top: 8rem;
   }
 
@@ -1058,7 +1061,7 @@ select, option {
     margin-right: auto;
   }
 
-  .work {
+  .download {
     margin-top: 7.5rem;
   }
 

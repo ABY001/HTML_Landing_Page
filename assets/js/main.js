@@ -1,5 +1,5 @@
 /*==================== SHOW MENU ====================*/
-const modal = document.getElementById("modal-wrapper");
+const modal = document.getElementById("register");
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
@@ -201,12 +201,13 @@ function closeForm() {
   document.contactform.uname.value = "";
   document.contactform.gender.value = "";
   document.contactform.email.value = "";
+  document.contactform.location.value = "";
   document.contactform.phone.value = "";
   document.contactform.phone.value = "";
   document.contactform.psw.value = "";
   document.contactform.psw2.value = "";
   document.getElementById("my-check").checked = false;
-  document.getElementById("modal-wrapper").style.display = "none";
+  document.getElementById("register").style.display = "none";
   document.getElementById("login").disabled = true;
 }
 
@@ -216,9 +217,11 @@ function closeNotification() {
 }
 
 signUpRequest = async () => {
-  var url = "https://htmlfood.herokuapp.com/api/v1/user";
+  // var url = "https://htmlfood.herokuapp.com/api/v1/user";
+  var url = "https://backend.htmlfoods.org/api/v1/user";
   var name = document.getElementById("uname").value;
   var gender = document.getElementById("gender").value;
+  var location = document.getElementById("location").value;
   var email = document.getElementById("email").value;
   var phone = document.getElementById("phone").value;
   var password = document.getElementById("psw").value;
@@ -229,6 +232,7 @@ signUpRequest = async () => {
     email: email,
     phonenumber: phone,
     gender: gender,
+    location: location,
   };
 
   const settings = {
@@ -251,12 +255,13 @@ signUpRequest = async () => {
         document.contactform.uname.value = "";
         document.contactform.gender.value = "";
         document.contactform.email.value = "";
+        document.contactform.location.value = "";
         document.contactform.phone.value = "";
         document.contactform.phone.value = "";
         document.contactform.psw.value = "";
         document.contactform.psw2.value = "";
         document.getElementById("my-check").checked = false;
-        document.getElementById("modal-wrapper").style.display = "none";
+        document.getElementById("register").style.display = "none";
         document.getElementById("login").disabled = true;
         $("#notification-text").html(
           "<strong>You can now proceed to login in your mobile app.<br/>Thanks for getting in touch!</h3></strong>"
@@ -284,6 +289,7 @@ signUpRequest = async () => {
 function submitForm() {
   var name = document.getElementById("uname").value;
   var gender = document.getElementById("gender").value;
+  var location = document.getElementById("location").value;
   var email = document.getElementById("email").value;
   var phone = document.getElementById("phone").value;
   var password = document.getElementById("psw").value;
@@ -293,33 +299,40 @@ function submitForm() {
     if (name) {
       if (phone) {
         if (gender) {
-          if (password) {
-            if (password2) {
-              if (password === password2) {
-                document.getElementById("loading").style.display = "block";
-                document.getElementById("unloading").style.display = "none";
-                signUpRequest();
+          if (location) {
+            if (password) {
+              if (password2) {
+                if (password === password2) {
+                  document.getElementById("loading").style.display = "block";
+                  document.getElementById("unloading").style.display = "none";
+                  signUpRequest();
+                } else {
+                  $("#notification-text").html(
+                    "<strong>Please make sure your password match!</strong>"
+                  );
+                  $(".notification").addClass("is-visible");
+                }
               } else {
                 $("#notification-text").html(
-                  "<strong>Please make sure your password match!</strong>"
+                  "<strong>Please confirm your password!</strong>"
                 );
                 $(".notification").addClass("is-visible");
               }
             } else {
               $("#notification-text").html(
-                "<strong>Please confirm your password!</strong>"
+                "<strong>Please input your password!</strong>"
               );
               $(".notification").addClass("is-visible");
             }
           } else {
             $("#notification-text").html(
-              "<strong>Please input your password!</strong>"
+              "<strong>Please select your location!</strong>"
             );
             $(".notification").addClass("is-visible");
           }
         } else {
           $("#notification-text").html(
-            "<strong>Please provide your gender.</strong>"
+            "<strong>Please select your gender.</strong>"
           );
           $(".notification").addClass("is-visible");
         }
