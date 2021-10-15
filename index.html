@@ -93,6 +93,10 @@
               </select>
           </div>
           <div class="input__container">
+            <!-- <input type="date" name="dob" placeholder="Enter Date of birth(YYYY-MM-DD)" min="1900-01-01" value="" required> -->
+            <input type="text" id="dob" name="dob" placeholder="Enter Date of birth(YYYY-MM-DD)" required pattern="(?:19|20)\[0-9\]{2}-(?:(?:0\[1-9\]|1\[0-2\])-(?:0\[1-9\]|1\[0-9\]|2\[0-9\])|(?:(?!02)(?:0\[1-9\]|1\[0-2\])-(?:30))|(?:(?:0\[13578\]|1\[02\])-31))" required/>
+          </div>
+          <div class="input__container">
             <input type="phone" placeholder="Enter Phone Number" id="phone" name="phonenumber"/>
           </div>
           <div class="input__container">

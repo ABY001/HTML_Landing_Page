@@ -203,7 +203,7 @@ function closeForm() {
   document.contactform.email.value = "";
   document.contactform.location.value = "";
   document.contactform.phone.value = "";
-  document.contactform.phone.value = "";
+  document.contactform.dob.value = "";
   document.contactform.psw.value = "";
   document.contactform.psw2.value = "";
   document.getElementById("my-check").checked = false;
@@ -224,6 +224,7 @@ signUpRequest = async () => {
   var location = document.getElementById("location").value;
   var email = document.getElementById("email").value;
   var phone = document.getElementById("phone").value;
+  var dob = document.getElementById("dob").value;
   var password = document.getElementById("psw").value;
 
   const parameters = {
@@ -233,6 +234,7 @@ signUpRequest = async () => {
     phonenumber: phone,
     gender: gender,
     location: location,
+    dob: dob,
   };
 
   const settings = {
@@ -257,6 +259,7 @@ signUpRequest = async () => {
         document.contactform.email.value = "";
         document.contactform.location.value = "";
         document.contactform.phone.value = "";
+        document.contactform.dob.value = "";
         document.contactform.phone.value = "";
         document.contactform.psw.value = "";
         document.contactform.psw2.value = "";
@@ -291,6 +294,7 @@ function submitForm() {
   var gender = document.getElementById("gender").value;
   var location = document.getElementById("location").value;
   var email = document.getElementById("email").value;
+  var dob = document.getElementById("dob").value;
   var phone = document.getElementById("phone").value;
   var password = document.getElementById("psw").value;
   var password2 = document.getElementById("psw2").value;
@@ -300,27 +304,34 @@ function submitForm() {
       if (phone) {
         if (gender) {
           if (location) {
-            if (password) {
-              if (password2) {
-                if (password === password2) {
-                  document.getElementById("loading").style.display = "block";
-                  document.getElementById("unloading").style.display = "none";
-                  signUpRequest();
+            if (dob) {
+              if (password) {
+                if (password2) {
+                  if (password === password2) {
+                    document.getElementById("loading").style.display = "block";
+                    document.getElementById("unloading").style.display = "none";
+                    signUpRequest();
+                  } else {
+                    $("#notification-text").html(
+                      "<strong>Please make sure your password match!</strong>"
+                    );
+                    $(".notification").addClass("is-visible");
+                  }
                 } else {
                   $("#notification-text").html(
-                    "<strong>Please make sure your password match!</strong>"
+                    "<strong>Please confirm your password!</strong>"
                   );
                   $(".notification").addClass("is-visible");
                 }
               } else {
                 $("#notification-text").html(
-                  "<strong>Please confirm your password!</strong>"
+                  "<strong>Please input your password!</strong>"
                 );
                 $(".notification").addClass("is-visible");
               }
             } else {
               $("#notification-text").html(
-                "<strong>Please input your password!</strong>"
+                "<strong>Please input the correct date of birth format</strong>"
               );
               $(".notification").addClass("is-visible");
             }
