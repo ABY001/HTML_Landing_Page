@@ -110,6 +110,14 @@ const getCurrentLogo = () =>
 const getCurrentLogo2 = () =>
   logoImage2.classList.contains(logoTheme2) ? "logo__dark" : "logo__light";
 
+// const currentUrl = window.location.href;
+// console.log("hii", currentUrl);
+
+if (window.location.href.includes("register")) {
+  console.log('hello');
+  document.getElementById('register').style.display='block'
+}
+
 // Switch Logo
 let lightLogo = document.getElementById("logo__switch");
 let darkLogo = document.getElementById("logo__switch2");
