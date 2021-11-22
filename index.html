@@ -18,323 +18,408 @@
     <title>HTML FOODS</title>
   </head>
   <body id="body">
-    <!--========== SCROLL TOP ==========-->
-    <a href="#" class="scrolltop" id="scroll-top">
-      <i class="bx bx-up-arrow-alt scrolltop__icon"></i>
-    </a>
-
-    <!--========== HEADER ==========-->
-    <header class="l-header shadow" id="header">
-      <nav class="nav bd-container">
-        <a href="#" class="nav__logo">
-          <img src="assets/img/HTML_Logo_Alt.png" alt="HTML_Logo" id="logo__switch" class="logo__dark"/>
-          <img src="assets/img/HTML_Logo.png" alt="HTML_Logo" id="logo__switch2" class="logo__light"/>
-        </a>
-        <div class="nav__menu" id="nav-menu">
-          <ul class="nav__list">
-            <li class="nav__item">
-              <a href="#home" class="nav__link active-link">Home</a>
-            </li>
-            <li class="nav__item">
-              <a href="#download" class="nav__link">Download</a>
-            </li>
-            <li class="nav__item">
-              <a
-                href="#register"
-                class="nav__link"
-                onclick="document.getElementById('register').style.display='block'"
-                >Register</a
-              >
-            </li>
-            <!-- <li class="nav__item">
-              <a href="#download" class="nav__link">About us</a>
-            </li> -->
-            <li class="nav__item">
-              <a href="#about-us" class="nav__link">About Us</a>
-            </li>
-
-            <li>
-              <i class="bx bxs-bulb change-theme" id="theme-button"></i>
-            </li>
-          </ul>
-        </div>
-
-        <div class="nav__toggle" id="nav-toggle">
-          <i class="bx bx-grid-alt"></i>
-        </div>
-      </nav>
-    </header>
-
-    <div id="register" class="modal">
-      <form
-        class="modal-content animate"
-        name="contactform"
-        id="contactform"
-      >
-       <div class="imgcontainer">
-          <span onclick="closeForm()" class="close" title="Close PopUp"
-            >&times;</span
-          >
-          <h1 style="text-align: center" class="sign__up">Sign Up</h1>
-        </div>
-
-        <div class="container">
-          <div class="input__container">
-            <input type="text" placeholder="Enter Name" id="uname" name="fullname"/>
-          </div>
-          <div class="input__container">
-            <input type="email" placeholder="Enter Email" id="email" name="email"/>
-          </div>
-          <div class="input__container">
-            <select type="email" id="gender" name="gender" required>
-              <option value="" disabled selected hidden>Select Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              </select>
-          </div>
-          <div class="input__container">
-            <!-- <input type="date" name="dob" placeholder="Enter Date of birth(YYYY-MM-DD)" min="1900-01-01" value="" required> -->
-            <input type="text" id="dob" name="dob" placeholder="Enter Date of birth(YYYY-MM-DD)" required pattern="(?:19|20)\[0-9\]{2}-(?:(?:0\[1-9\]|1\[0-2\])-(?:0\[1-9\]|1\[0-9\]|2\[0-9\])|(?:(?!02)(?:0\[1-9\]|1\[0-2\])-(?:30))|(?:(?:0\[13578\]|1\[02\])-31))" required/>
-          </div>
-          <div class="input__container">
-            <input type="phone" placeholder="Enter Phone Number" id="phone" name="phonenumber"/>
-          </div>
-          <div class="input__container">
-            <select id="location" name="location" required>
-              <option value="" disabled selected hidden>Select Current Location</option>
-                <option value="ABUJA">ABUJA FCT</option>
-                <option value="ABIA">ABIA</option>
-                <option value="ADAMAWA">ADAMAWA</option>
-                <option value="AKWA IBOM">AKWA IBOM</option>
-                <option value="ANAMBRA">ANAMBRA</option>
-                <option value="BAUCHI">BAUCHI</option>
-                <option value="BAYELSA">BAYELSA</option>
-                <option value="BENUE">BENUE</option>
-                <option value="BORNO">BORNO</option>
-                <option value="CROSS RIVER">CROSS RIVER</option>
-                <option value="DELTA">DELTA</option>
-                <option value="EBONYI">EBONYI</option>
-                <option value="EDO">EDO</option>
-                <option value="EKITI">EKITI</option>
-                <option value="ENUGU">ENUGU</option>
-                <option value="GOMBE">GOMBE</option>
-                <option value="IMO">IMO</option>
-                <option value="JIGAWA">JIGAWA</option>
-                <option value="KADUNA">KADUNA</option>
-                <option value="KANO">KANO</option>
-                <option value="KATSINA">KATSINA</option>
-                <option value="KEBBI">KEBBI</option>
-                <option value="KOGI">KOGI</option>
-                <option value="KWARA">KWARA</option>
-                <option value="LAGOS">LAGOS</option>
-                <option value="NASSARAWA">NASSARAWA</option>
-                <option value="NIGER">NIGER</option>
-                <option value="OGUN">OGUN</option>
-                <option value="ONDO">ONDO</option>
-                <option value="OSUN">OSUN</option>
-                <option value="OYO">OYO</option>
-                <option value="PLATEAU">PLATEAU</option>
-                <option value="RIVERS">RIVERS</option>
-                <option value="SOKOTO">SOKOTO</option>
-                <option value="TARABA">TARABA</option>
-                <option value="YOBE">YOBE</option>
-                <option value="ZAMFARA">ZAMFARA</option>
-                </select>
-              </select>
-          </div>
-          <div class="input__container">
-            <input type="password" placeholder="Enter Password" id="psw" name="password" />
-          </div>
-          <div class="input__container">
-            <input type="password" placeholder="Confirm Password" id="psw2" name="password" />
-          </div>
-          <div class="check__container">
-            <input type="checkbox" onclick="enableLogin()" id="my-check" />
-            I agree with
-            <span class="terms"> Terms of Service & Privacy Policy </span>
-          </div>
-
-          <div class="signup__container">
-            <button
-              type="button"
-              href="#"
-              class="button__signup"
-              id="login"
-              onclick="submitForm()"
-              disabled
-            > <i id="loading" class="fa fa-spinner fa-spin"></i>
-            <span id="unloading">Join Us</span>
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
-
-    <div class="cd-popup notification" role="alert" id="alert">
-      <div class="cd-popup-container">
-        <!-- <a href="" class="cd-popup-close cd-close-button"><i class="fa fa-times" style="pointer-events:none;"></i></a> -->
-        <span onclick="closeNotification()" class="cd-popup-close cd-close-button close" title="Close PopUp"
-            >&times;</span
-          >
-        <p>
-          <h3 id="notification-text">You can now proceed to login in your mobile app.<br/>Thanks for getting in touch!</h3>
-        </p>
-      </div>
-    </div>
-
-    <main class="l-main">
-      <!--========== HOME ==========-->
-      <section class="home" id="home">
-        <div class="home__container sub-bd-container hd-grid bd__background">
-          <div class="home__data">
-            <!-- <p class="home__title">Food app</p> -->
-            <p class="home__description">
-              Why stay hungry when you can order from HTML FOODS?
-            </p>
-            <!-- <p class="home__title">Download the &lt;&gt;html.FOODS&lt;/&gt; app now on</p> -->
-            <p class="home__title">Download the HTML FOODS App now</p>
-            <a href="https://play.google.com/store/apps/details?id=com.exceptos.htmlfoods" target="_blank"><img src="https://id.workable.com/public/android-badge.45fba4b122.png" alt="PlayStore" class="store__icon"/></a>
-            <a href="javascript:;"><img src="https://id.workable.com/public/ios-badge.2e025af292.png" alt="App_Store" class="store__icon"/></a>
-          </div>
-        </div>
-      </section>
-
-      <!--========== APP MOCKUP ==========-->
-      <section class="share section__alt bd-container">
-        <div class="share__container">
-          <div class="share__img">
-            <img class="center" src="assets/img/HTML_Mockup.png" alt="" />
-          </div>
-        </div>
-      </section>
-
-      <!--========== WORKS ==========-->
-      <section class="download section__alt bd-container" id="download">
-        <div class="bd-grid">
-          <div class="download__underline"></div>
-          <h2 class="section-title" style="font-size: 2rem;">How the App Works</h2>
-        </div>
-      </section>
-
-      <!--========== CREATE ==========-->
-      <section class="share section__alt bd-container">
-        <div class="create__container bd-grid">
-          <div class="share__data">
-            <p class="create-head">1. Create an Account</p>
-            <h2 class="section-title-center">
-              Sign up/login to an existing account to get started
-            </h2>
-            <p class="share__description">
-              An account is created with your email and a desired password
-            </p>
-          </div>
-          <div class="create__img">
-            <img src="assets/img/HTML_SignUpPage.png" alt="" />
-          </div>
-        </div>
-
-        <div class="create__container bd-grid">
-          <div class="order__data">
-            <p class="create-head">2. Explore Varieties</p>
-            <h2 class="section-title-center">
-              Order a meal, book for raw food delivery and lots more
-            </h2>
-            <p class="share__description">
-             Order for friends and family. Share the love!
-            </p>
-          </div>
-          <div class="order__img">
-            <img src="assets/img/HTML_OrderPage.png" alt="" />
-          </div>
-        </div>
-
-        <div class="create__container bd-grid">
-          <div class="share__data">
-            <p class="create-head">3. Checkout</p>
-            <h2 class="section-title-center">
-              Once payment is made, your order will be processed and on its way to you
-            </h2>
-            <p class="share__description">
-              Signup/login, explore, checkout. That's it! Easy breezy!
-            </p>
-          </div>
-          <div class="create__img">
-            <img src="assets/img/HTML_PaymentPage.png" alt="" />
-          </div>
-        </div>
-      </section>
-
-      
-      <!--========== ABOUT US ==========-->
-      <section class="about-us section__alt bd-container" id="about-us">
-        <div class="bd-grid">
-          <div class="download__underline"></div>
-          <h2 class="section-title" style="font-size: 2rem;">About Us</h2>
-          <div class="share__data" style="margin-bottom: 2rem">
-              <p class="share__description"><b>HTML FOODS</b> is a food service company that caters for people daily food needs.</p>
-              <p class="share__description"><b>HTML FOODS</b> offers customized food solutions through deliveries , catering and packaged processed farm produce using design thinking, creative intelligence and technology.</p>
-              <p class="share__description">The food services and products of <b>HTML FOODS</b> cuts across hospitality (catering), agriculture and allied processing ensuring healthy and nutritional minded products.</p>
-              <p class="share__description"><b>HTML</b> means “Hyper Tasty Meal Language”</p>
-              <p class="share__description"><b>HTML FOODS</b> - The edible language</p>
-          </div>
-        </div>
-      </section>
-    </main>
-      
-      <!--========== OUR VISION ==========-->
-      <section class="our-vision section__alt bd-container" id="our-vision">
-        <div class="bd-grid">
-          <div class="download__underline"></div>
-          <h2 class="section-title" style="font-size: 2rem;">Our Vision</h2>
-          <div class="share__data" style="margin-bottom: 2rem">
-            <p class="share__description">We exist to be the premier, people-centric brand that proactively solves food problems in a genuine, healthy and sustainable way.</p>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!--========== FOOTER ==========-->
-    <footer class="">
-      <section class="" id="footer">
-        <div class="footer__container sub-bd-container hd-grid ft__background">
-          <div class="footer__data">
-            <p class="footer__description">Download the app now</p>
-            <p class="footer__title">
-              Available on your favorite store. Start your premium experience
-              now.
-            </p>
-            <a href="https://play.google.com/store/apps/details?id=com.exceptos.htmlfoods" target="_blank"><img src="https://id.workable.com/public/android-badge.45fba4b122.png" alt="PlayStore" class="store__icon"/></a>
-            <a href="javascript:;"><img src="https://id.workable.com/public/ios-badge.2e025af292.png" alt="App_Store" class="store__icon"/></a>
-          </div>
-        </div>
-      </section>
-
-      <section class="home" id="home">
-        <div class="footer__container bd-container hd-grid">
-          <div class="footer__data footer">
-            <div class="footer__content">
+    <span id="coming__soon">
+      <div class="coming">
+        <div class="wrapper">
+          <main class="content">
+            <h1>COMING SOON!</h1>
+        
+            <div class="countdown">
+              <div class="countdown__days">
+                <div class="number"></div>
+                <span class>Days</span>
+              </div>
+        
+              <div class="countdown__hours">
+                <div class="number"></div>
+                <span class>Hours</span>
+              </div>
+        
+              <div class="countdown__minutes">
+                <div class="number"></div>
+                <span class>Minutes</span>
+              </div>
+        
+              <div class="countdown__seconds">
+                <div class="number"></div>
+                <span class>Seconds</span>
+              </div>
+            </div>
+        
+            <p>Your Fav Food App is almost done. We`ll be here soon<br />with our new awesome app. Subscribe to be notified.</p>
+        
+            <form name="waitingList" id="waitingList" >
+              <input id="form-email" name="email" type="email" placeholder="Your email address" />
+              <input id="form-phonenumber" name="phonenumber" type="phone" placeholder="Your phone number" />
+              <!-- <input type="submit" value="Notify me" /> -->
+              <button
+                type="button"
+                href="#"
+                id="info"
+                onclick="submitInfo()"
+              > 
+              <i id="form-loading" class="fa fa-spinner fa-spin"></i>
+              <span id="form-unloading">Notify me</span>
+              </button>
+            </form>
+          </main>
+        
+          <footer class="foot">
+            <ul class="footer__links">
               <a href="https://t.co/X9ZSIMdSR2" class="footer__social" target="_blank"
-                ><img src="assets/img/twitter.png" alt="twitter"
-              /></a>
-              <a href="https://t.co/iUsgG0mhwT" class="footer__social" target="_blank"
-                ><img src="assets/img/facebook.png" alt="facebook"
-              /></a>
-              <a href="https://t.co/G4hMA4pvjK" class="footer__social" target="_blank"
-              ><img src="assets/img/instagram.png" alt="instagram"
+              ><img src="assets/img/twitter.png" alt="twitter"
             /></a>
-              <a href="https://wa.me/2349067019742" style="margin-right: -0.2rem" class="footer__social" target="_blank"
-              ><img src="assets/img/whatsapp.png" alt="whatsapp"
+            <a href="https://t.co/iUsgG0mhwT" class="footer__social" target="_blank"
+              ><img src="assets/img/facebook.png" alt="facebook"
             /></a>
-            </div>
-
-            <div class="footer__content">
-                <p class="footer__copy">&#169; 2021 HTML FOODS. All right reserved</p>
-            </div>
-
+            <a href="https://t.co/G4hMA4pvjK" class="footer__social" target="_blank"
+            ><img src="assets/img/instagram.png" alt="instagram"
+          /></a>
+            <a href="https://wa.me/2349067019742" style="margin-right: -0.2rem" class="footer__social" target="_blank"
+            ><img src="assets/img/whatsapp.png" alt="whatsapp"
+          /></a>
+            </ul>
+          </footer>
           </div>
+
+      </div>
+      </span>
+    <span id="fully__up">
+      <!--========== SCROLL TOP ==========-->
+      <a href="#" class="scrolltop" id="scroll-top">
+        <i class="bx bx-up-arrow-alt scrolltop__icon"></i>
+      </a>
+
+     <!--========== HEADER ==========-->
+      <header class="l-header shadow" id="header">
+        <nav class="nav bd-container">
+          <a href="#" class="nav__logo">
+            <img src="assets/img/HTML_Logo_Alt.png" alt="HTML_Logo" id="logo__switch" class="logo__dark"/>
+            <img src="assets/img/HTML_Logo.png" alt="HTML_Logo" id="logo__switch2" class="logo__light"/>
+          </a>
+          <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="#home" class="nav__link active-link">Home</a>
+              </li>
+              <li class="nav__item">
+                <a href="#download" class="nav__link">Download</a>
+              </li>
+              <li class="nav__item">
+                <a
+                  href="#register"
+                  class="nav__link"
+                  onclick="document.getElementById('register').style.display='block'"
+                  >Register</a
+                >
+              </li>
+              <!-- <li class="nav__item">
+                <a href="#download" class="nav__link">About us</a>
+              </li> -->
+              <li class="nav__item">
+                <a href="#about-us" class="nav__link">About Us</a>
+              </li>
+
+              <li>
+                <i class="bx bxs-bulb change-theme" id="theme-button"></i>
+              </li>
+            </ul>
+          </div>
+
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="bx bx-grid-alt"></i>
+          </div>
+        </nav>
+      </header>
+
+      <div id="register" class="modal">
+        <form
+          class="modal-content animate"
+          name="contactform"
+          id="contactform"
+        >
+        <div class="imgcontainer">
+            <span onclick="closeForm()" class="close" title="Close PopUp"
+              >&times;</span
+            >
+            <h1 style="text-align: center" class="sign__up">Sign Up</h1>
+          </div>
+
+          <div class="container">
+            <div class="input__container">
+              <input type="text" placeholder="Enter Name" id="uname" name="fullname"/>
+            </div>
+            <div class="input__container">
+              <input type="email" placeholder="Enter Email" id="email" name="email"/>
+            </div>
+            <div class="input__container">
+              <select type="email" id="gender" name="gender" required>
+                <option value="" disabled selected hidden>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="input__container">
+              <!-- <input type="date" name="dob" placeholder="Enter Date of birth(YYYY-MM-DD)" min="1900-01-01" value="" required> -->
+              <input type="text" id="dob" name="dob" placeholder="Enter Date of birth(YYYY-MM-DD)" required pattern="(?:19|20)\[0-9\]{2}-(?:(?:0\[1-9\]|1\[0-2\])-(?:0\[1-9\]|1\[0-9\]|2\[0-9\])|(?:(?!02)(?:0\[1-9\]|1\[0-2\])-(?:30))|(?:(?:0\[13578\]|1\[02\])-31))" required/>
+            </div>
+            <div class="input__container">
+              <input type="phone" placeholder="Enter Phone Number" id="phone" name="phonenumber"/>
+            </div>
+            <div class="input__container">
+              <select id="location" name="location" required>
+                <option value="" disabled selected hidden>Select Current Location</option>
+                  <option value="ABUJA">ABUJA FCT</option>
+                  <option value="ABIA">ABIA</option>
+                  <option value="ADAMAWA">ADAMAWA</option>
+                  <option value="AKWA IBOM">AKWA IBOM</option>
+                  <option value="ANAMBRA">ANAMBRA</option>
+                  <option value="BAUCHI">BAUCHI</option>
+                  <option value="BAYELSA">BAYELSA</option>
+                  <option value="BENUE">BENUE</option>
+                  <option value="BORNO">BORNO</option>
+                  <option value="CROSS RIVER">CROSS RIVER</option>
+                  <option value="DELTA">DELTA</option>
+                  <option value="EBONYI">EBONYI</option>
+                  <option value="EDO">EDO</option>
+                  <option value="EKITI">EKITI</option>
+                  <option value="ENUGU">ENUGU</option>
+                  <option value="GOMBE">GOMBE</option>
+                  <option value="IMO">IMO</option>
+                  <option value="JIGAWA">JIGAWA</option>
+                  <option value="KADUNA">KADUNA</option>
+                  <option value="KANO">KANO</option>
+                  <option value="KATSINA">KATSINA</option>
+                  <option value="KEBBI">KEBBI</option>
+                  <option value="KOGI">KOGI</option>
+                  <option value="KWARA">KWARA</option>
+                  <option value="LAGOS">LAGOS</option>
+                  <option value="NASSARAWA">NASSARAWA</option>
+                  <option value="NIGER">NIGER</option>
+                  <option value="OGUN">OGUN</option>
+                  <option value="ONDO">ONDO</option>
+                  <option value="OSUN">OSUN</option>
+                  <option value="OYO">OYO</option>
+                  <option value="PLATEAU">PLATEAU</option>
+                  <option value="RIVERS">RIVERS</option>
+                  <option value="SOKOTO">SOKOTO</option>
+                  <option value="TARABA">TARABA</option>
+                  <option value="YOBE">YOBE</option>
+                  <option value="ZAMFARA">ZAMFARA</option>
+                  </select>
+                </select>
+            </div>
+            <div class="input__container">
+              <input type="password" placeholder="Enter Password" id="psw" name="password" />
+            </div>
+            <div class="input__container">
+              <input type="password" placeholder="Confirm Password" id="psw2" name="password" />
+            </div>
+            <div class="check__container">
+              <input type="checkbox" onclick="enableLogin()" id="my-check" />
+              I agree with
+              <span class="terms"> Terms of Service & Privacy Policy </span>
+            </div>
+
+            <div class="signup__container">
+              <button
+                type="button"
+                href="#"
+                class="button__signup"
+                id="login"
+                onclick="submitForm()"
+                disabled
+              > <i id="loading" class="fa fa-spinner fa-spin"></i>
+              <span id="unloading">Join Us</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="cd-popup awaiting-notification" role="alert" id="form-alert">
+        <div class="cd-popup-container">
+          <!-- <a href="" class="cd-popup-close cd-close-button"><i class="fa fa-times" style="pointer-events:none;"></i></a> -->
+          <span onclick="closeAwaitNotification()" class="cd-popup-close cd-close-button close" title="Close PopUp"
+              >&times;</span
+            >
+          <p>
+            <h3 id="notification-text">You can now proceed to login in your mobile app.<br/>Thanks for getting in touch!</h3>
+          </p>
         </div>
-      </section>
-    </footer>
+      </div>
+
+      <div class="cd-popup notification" role="alert" id="alert">
+        <div class="cd-popup-container">
+          <!-- <a href="" class="cd-popup-close cd-close-button"><i class="fa fa-times" style="pointer-events:none;"></i></a> -->
+          <span onclick="closeNotification()" class="cd-popup-close cd-close-button close" title="Close PopUp"
+              >&times;</span
+            >
+          <p>
+            <h3 id="notification-text">You can now proceed to login in your mobile app.<br/>Thanks for getting in touch!</h3>
+          </p>
+        </div>
+      </div>
+
+      <main class="l-main">
+        <!--========== HOME ==========-->
+        <section class="home" id="home">
+          <div class="home__container sub-bd-container hd-grid bd__background">
+            <div class="home__data">
+              <!-- <p class="home__title">Food app</p> -->
+              <p class="home__description">
+                Why stay hungry when you can order from HTML FOODS?
+              </p>
+              <!-- <p class="home__title">Download the &lt;&gt;html.FOODS&lt;/&gt; app now on</p> -->
+              <p class="home__title">Download the HTML FOODS App now</p>
+              <a href="https://play.google.com/store/apps/details?id=com.exceptos.htmlfoods" target="_blank"><img src="assets/img/playstore.png" alt="PlayStore" class="store__icon1"/></a>
+              <a href="javascript:;"><img src="assets/img/appstore.png" alt="App_Store" class="store__icon1"/></a>
+            </div>
+          </div>
+        </section>
+
+        <!--========== APP MOCKUP ==========-->
+        <section class="share section__alt bd-container">
+          <div class="share__container">
+            <div class="share__img">
+              <img class="center" src="assets/img/HTML_Mockup.png" alt="" />
+            </div>
+          </div>
+        </section>
+
+        <!--========== WORKS ==========-->
+        <section class="download section__alt bd-container" id="download">
+          <div class="bd-grid">
+            <div class="download__underline"></div>
+            <h2 class="section-title" style="font-size: 2rem;">How the App Works</h2>
+          </div>
+        </section>
+
+        <!--========== CREATE ==========-->
+        <section class="share section__alt bd-container">
+          <div class="create__container bd-grid">
+            <div class="share__data">
+              <p class="create-head">1. Create an Account</p>
+              <h2 class="section-title-center">
+                Sign up/login to an existing account to get started
+              </h2>
+              <p class="share__description">
+                An account is created with your email and a desired password
+              </p>
+            </div>
+            <div class="create__img">
+              <img src="assets/img/HTML_SignUpPage.png" alt="" />
+            </div>
+          </div>
+
+          <div class="create__container bd-grid">
+            <div class="order__data">
+              <p class="create-head">2. Explore Varieties</p>
+              <h2 class="section-title-center">
+                Order a meal, book for raw food delivery and lots more
+              </h2>
+              <p class="share__description">
+              Order for friends and family. Share the love!
+              </p>
+            </div>
+            <div class="order__img">
+              <img src="assets/img/HTML_OrderPage.png" alt="" />
+            </div>
+          </div>
+
+          <div class="create__container bd-grid">
+            <div class="share__data">
+              <p class="create-head">3. Checkout</p>
+              <h2 class="section-title-center">
+                Once payment is made, your order will be processed and on its way to you
+              </h2>
+              <p class="share__description">
+                Signup/login, explore, checkout. That's it! Easy breezy!
+              </p>
+            </div>
+            <div class="create__img">
+              <img src="assets/img/HTML_PaymentPage.png" alt="" />
+            </div>
+          </div>
+        </section>
+
+        
+        <!--========== ABOUT US ==========-->
+        <section class="about-us section__alt bd-container" id="about-us">
+          <div class="bd-grid">
+            <div class="download__underline"></div>
+            <h2 class="section-title" style="font-size: 2rem; color: var(--first-color)">About Us</h2>
+            <div class="share__data" style="margin-bottom: 2rem">
+                <p class="share__description"><b>HTML FOODS</b> is a food service company that caters for people daily food needs.</p>
+                <p class="share__description"><b>HTML FOODS</b> offers customized food solutions through deliveries , catering and packaged processed farm produce using design thinking, creative intelligence and technology.</p>
+                <p class="share__description">The food services and products of <b>HTML FOODS</b> cuts across hospitality (catering), agriculture and allied processing ensuring healthy and nutritional minded products.</p>
+                <p class="share__description"><b>HTML</b> means “Hyper Tasty Meal Language”</p>
+                <p class="share__description"><b>HTML FOODS</b> - The edible language</p>
+            </div>
+          </div>
+        </section>
+        
+        <!--========== OUR VISION ==========-->
+        <section class="our-vision section__alt bd-container" id="our-vision">
+          <div class="bd-grid">
+            <div class="download__underline"></div>
+            <h2 class="section-title" style="font-size: 2rem; color: var(--first-color)">Our Vision</h2>
+            <div class="share__data" style="margin-bottom: 2rem">
+              <p class="share__description">We exist to be the premier, people-centric brand that proactively solves food problems in a genuine, healthy and sustainable way.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!--========== FOOTER ==========-->
+      <footer class="">
+        <section class="" id="footer">
+          <div class="footer__container sub-bd-container hd-grid ft__background">
+            <div class="footer__data">
+              <p class="footer__description">Download the app now</p>
+              <p class="footer__title">
+                Available on your favorite store. Start your premium experience
+                now.
+              </p>
+              <a href="https://play.google.com/store/apps/details?id=com.exceptos.htmlfoods" target="_blank"><img src="assets/img/playstore.png" alt="PlayStore" class="store__icon"/></a>
+              <a href="javascript:;"><img src="assets/img/appstore.png" alt="App_Store" class="store__icon"/></a>
+            </div>
+          </div>
+        </section>
+
+        <section class="home" id="home">
+          <div class="footer__container bd-container hd-grid">
+            <div class="footer__data footer">
+              <div class="footer__content">
+                <a href="https://t.co/X9ZSIMdSR2" class="footer__social" target="_blank"
+                  ><img src="assets/img/twitter.png" alt="twitter"
+                /></a>
+                <a href="https://t.co/iUsgG0mhwT" class="footer__social" target="_blank"
+                  ><img src="assets/img/facebook.png" alt="facebook"
+                /></a>
+                <a href="https://t.co/G4hMA4pvjK" class="footer__social" target="_blank"
+                ><img src="assets/img/instagram.png" alt="instagram"
+              /></a>
+                <a href="https://wa.me/2349067019742" style="margin-right: -0.2rem" class="footer__social" target="_blank"
+                ><img src="assets/img/whatsapp.png" alt="whatsapp"
+              /></a>
+              </div>
+
+              <div class="footer__content"><p class="footer__copy">
+                <a href="#about-us" class="footer__copy" style="margin-right: var(--mb-3); color: var(--first-color);"
+                >About us
+              </a>
+                <a href="./privacy-policy.html" class="footer__copy" style="margin-right: var(--mb-3); color: var(--first-color);"
+                >Privacy Policy
+              </a></p>
+                  <p class="footer__copy">&#169; 2021 HTML FOODS. All right reserved</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      </footer>
+    </span>
 
     <!--========== SCROLL REVEAL ==========-->
     <script src="https://unpkg.com/scrollreveal"></script>

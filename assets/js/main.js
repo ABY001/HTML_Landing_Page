@@ -1,3 +1,41 @@
+(() => {
+  // Specify the deadline date
+  const deadlineDate = new Date("December 11, 2021 00:00:00").getTime();
+
+  // Cache all countdown boxes into consts
+  const countdownDays = document.querySelector(".countdown__days .number");
+  const countdownHours = document.querySelector(".countdown__hours .number");
+  const countdownMinutes = document.querySelector(
+    ".countdown__minutes .number"
+  );
+  const countdownSeconds = document.querySelector(
+    ".countdown__seconds .number"
+  );
+
+  // Update the count down every 1 second (1000 milliseconds)
+  setInterval(() => {
+    // Get current date and time
+    const currentDate = new Date().getTime();
+
+    // Calculate the distance between current date and time and the deadline date and time
+    const distance = deadlineDate - currentDate;
+
+    // Calculations the data for remaining days, hours, minutes and seconds
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Insert the result data into individual countdown boxes
+    countdownDays.innerHTML = days;
+    countdownHours.innerHTML = hours;
+    countdownMinutes.innerHTML = minutes;
+    countdownSeconds.innerHTML = seconds;
+  }, 1000);
+})();
+
 /*==================== SHOW MENU ====================*/
 const modal = document.getElementById("register");
 window.onclick = function (event) {
@@ -113,10 +151,11 @@ const getCurrentLogo2 = () =>
 // const currentUrl = window.location.href;
 // console.log("hii", currentUrl);
 
-if (window.location.href.includes("register")) {
-  console.log('hello');
-  document.getElementById('register').style.display='block'
-}
+// if (window.location.href.includes("register")) {
+//   console.log("hello");
+//   document.getElementById("register").style.display = "block";
+// }
+document.getElementById("fully__up").style.display = "block";
 
 // Switch Logo
 let lightLogo = document.getElementById("logo__switch");
@@ -219,11 +258,63 @@ function closeForm() {
   document.getElementById("login").disabled = true;
 }
 
-function closeNotification() {
-  const not = document.getElementById("alert");
+function closeAwaitNotification() {
+  const not = document.getElementById("form-alert");
   not.classList.remove("is-visible");
 }
 
+addToList = async () => {
+  // var url = "https://htmlfood.herokuapp.com/api/v1/user";
+  let url = "https://backend.htmlfoods.org/api/v1/user/waiting-list";
+  let email = document.getElementById("form-email").value;
+  let phone = document.getElementById("form-phonenumber").value;
+
+  const parameters = {
+    email: email,
+    phonenumber: phone,
+  };
+
+  const settings = {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(parameters),
+  };
+
+  try {
+    const fetchResponse = await fetch(url, settings);
+    const data = await fetchResponse.json();
+    console.log(data);
+    if (data) {
+      if (data.status == "OK") {
+        document.contactform.email.value = "";
+        document.contactform.phone.value = "";
+        document.getElementById("form-loading").style.display = "none";
+        document.getElementById("form-unloading").style.display = "block";
+        $("#notification-text").html(
+          "<strong>You have been successfully added to the waiting list and will get notified as soon as we are up and running!</strong>"
+        );
+        $(".awaiting-notification").addClass("is-visible");
+        return data;
+      } else {
+        $("#notification-text").html("<strong>" + data.message + "</strong>");
+        $(".awaiting-notification").addClass("is-visible");
+      }
+      document.getElementById("form-loading").style.display = "none";
+      document.getElementById("form-unloading").style.display = "block";
+    } else {
+      document.getElementById("form-loading").style.display = "none";
+      document.getElementById("form-unloading").style.display = "block";
+      return;
+    }
+  } catch (e) {
+    document.getElementById("form-loading").style.display = "none";
+    document.getElementById("form-unloading").style.display = "block";
+    return e;
+  }
+};
 signUpRequest = async () => {
   // var url = "https://htmlfood.herokuapp.com/api/v1/user";
   var url = "https://backend.htmlfoods.org/api/v1/user";
@@ -296,6 +387,30 @@ signUpRequest = async () => {
     return e;
   }
 };
+
+function submitInfo() {
+  var email = document.getElementById("form-email").value;
+  var phone = document.getElementById("form-phonenumber").value;
+  console.log(phone);
+  if (validateEmail(email)) {
+    if (phone) {
+      document.getElementById("form-loading").style.display = "block";
+      document.getElementById("form-unloading").style.display = "none";
+      addToList();
+    } else {
+      $("#notification-text").html(
+        "<strong>Please provide a phone number.</strong>"
+      );
+      $(".awaiting-notification").addClass("is-visible");
+    }
+  } else {
+    $("#notification-text").html(
+      "<strong>Please use a valid email address.</strong>"
+    );
+    $(".awaiting-notification").addClass("is-visible");
+  }
+  return false;
+}
 
 function submitForm() {
   var name = document.getElementById("uname").value;
