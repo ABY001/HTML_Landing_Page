@@ -700,7 +700,7 @@
      text-align: center;
 }
  .share__description {
-     margin-bottom: var(--mb-2);
+     margin-bottom: var(--mb-3);
 }
  .share__img {
     /* width: 280px;
